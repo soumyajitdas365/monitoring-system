@@ -1,8 +1,12 @@
 // Timer.periodic(new Duration(seconds: 1), (timer) {
 //    debugPrint(timer.tick.toString());
 // });
+// ignore_for_file: prefer_const_constructors
+
+import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:isolate';
 
 import 'package:http/http.dart' as http;
 
@@ -36,4 +40,15 @@ Future<void> fetchDataPeriodically() async {
     // Wait for 5 seconds before the next request
     await Future.delayed(const Duration(seconds: 5));
   }
+}
+
+asinInterval() async {
+  final isolate = await Isolate.spawn(await getFieldData(), null);
+
+  // Setting up a periodic timer to send a message to the isolate
+  Timer.periodic(
+      Duration(seconds: 5), (_) => isolate.controlPort.send("request"));
+
+  // Receiving messages from the isolate (optional)
+  // isolate.controlPort.send(message)
 }

@@ -9,7 +9,6 @@ class FieldDataProvider extends ChangeNotifier {
   Field? field1;
   setFieldData(Field data) {
     field1 = data;
-
     notifyListeners();
   }
 }

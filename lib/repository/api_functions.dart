@@ -63,14 +63,3 @@ Future<dynamic> fetchDataPeriodically() async {
     await Future.delayed(const Duration(seconds: 5));
   }
 }
-
-// asinInterval() async {
-//   final isolate = await Isolate.spawn(await getFieldData(), null);
-
-//   // Setting up a periodic timer to send a message to the isolate
-//   Timer.periodic(
-//       Duration(seconds: 5), (_) => isolate.controlPort.send("request"));
-
-//   // Receiving messages from the isolate (optional)
-//   // isolate.controlPort.send(message)
-// }

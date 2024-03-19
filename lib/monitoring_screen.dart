@@ -43,10 +43,10 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
               width: 30,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: getColor(fieldData.field1?.entryId)),
+                  color: getColor(fieldData.field1?.value)),
             ),
             title: Text("Machine name 1 (test)"),
-            trailing: fieldData.field1?.entryId != 459
+            trailing: fieldData.field1?.value != 1
                 ? Text(timeago.format(DateTime.now().subtract(DateTime.now()
                     .difference(
                         fieldData.field1?.createdAt ?? DateTime.now()))))

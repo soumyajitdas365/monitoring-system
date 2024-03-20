@@ -13,6 +13,8 @@ dependencies:
   provider:
   # rename_app: ^1.3.2
   timeago:
+  fluttertoast:
+  connectivity_plus:
 
 
 dev_dependencies:
